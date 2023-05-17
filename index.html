@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-svg" href="/img/logos.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Paint Spill Game</title>
+  </head>
+  <body>
+    <script src="game.js"></script>
+
+    <div class="modal-wrapper">
+      <div class="modal-window">
+        <div class="victory-message"></div>
+        <div class="game_mode_selector">
+          <input
+            type="radio"
+            id="game_easy"
+            name="game-level"
+            onclick="set_game_mode(5);"
+          /><label for="game_easy">Easy [5x5]</label>
+          <input
+            type="radio"
+            id="game_medium"
+            name="game-level"
+            checked
+            onclick="set_game_mode(10);"
+          /><label for="game_medium">Normal [10x10]</label>
+          <input
+            type="radio"
+            id="game_hard"
+            name="game-level"
+            onclick="set_game_mode(15);"
+          /><label for="game_hard">Hard [15x15]</label>
+        </div>
+        <button class="btn primary" onclick="setup_board();">Start Game</button>
+        <div class="high-scores">
+          <h4>Previous High Scores</h4>
+          <div class="score-values">
+            <span>Easy</span><span id="score-easy-figure"></span>
+            <span>Medium</span><span id="score-normal-figure"></span>
+            <span>Hard</span><span id="score-hard-figure"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="help">
+        <div class="content">
+            <img src="img/close.svg" alt="close help box" class="help-close-button" onclick="document.querySelector('#help').classList.toggle('shown');" width="40">
+            <img src="img/image.png" height="300" width="200">
+            <b>Goal: Fill the board with a single color</b>
+            <span>
+              When you press a color button, the top-left box and any adjacent squares of the same color will change to the selected color. The objective is to make all the squares on the board have the same color.
+            </span>
+          </div>
+          
+    </div>
+    <workspace>
+      <div class="info-box">
+        <div class="title-score">
+          <div class="title">Paint Spill game</div>
+          <div class="score">Moves used 0</div>
+          <div class="show_icons_wrapper">
+            <input
+              type="checkbox"
+              id="accesibility_checkbox"
+              onchange="javascript:toggle_accesibility();"
+            />
+            <label for="accesibility_checkbox">Show icons</label>
+          </div>
+        </div>
+        <div class="action_buttons">
+          <img
+            src="img/refresh.svg"
+            alt="new game"
+            onclick="document.querySelector('.modal-wrapper').style.display='';"
+            width="40"
+          />
+          <img
+            src="img/help.svg"
+            alt="help button"
+            onclick="document.querySelector('#help').classList.toggle('shown');"
+            width="40"
+          />
+        </div>
+      </div>
+      <div class="playground" id="playground"></div>
+      <div class="color-pots">
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+        <div class="color-pot">
+          <img class="accesbility_box" />
+        </div>
+      </div>
+    </workspace>
+    <script
+      src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js"
+      defer
+    ></script>
+  </body>
+</html>
